@@ -62,14 +62,9 @@ public class Ventana {
                         resultado.add(heroe);
                     }
 
+                    lblResultado.setText(heroe.toString());
                 }
 
-                Collections.sort(resultado);
-
-                for(SuperHeroe s : resultado){
-                    lblResultado.setText(s.toString());
-
-                }
 
 
             }
