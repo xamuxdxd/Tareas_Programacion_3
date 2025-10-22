@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Ventana {
     private JPanel principal;
@@ -52,10 +50,12 @@ public class Ventana {
         sumaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<SuperHeroe> resultado = new ArrayList<>();
+                Queue<SuperHeroe> resultado = new LinkedList<>();
+
                 for (SuperHeroe heroe : lista.listaHeroes()) {
+                    int valorAtaque = heroe.getNivelPoder();
                     if (cboUniverso.getSelectedItem().equals("Marvel")) {  // Puedes modificar este valor
-                        heroe.setNivelPoder((int) (heroe.getNivelPoder() * 0.15) + heroe.getNivelPoder());
+                        valorAtaque += valorAtaque * 0.15;
                         resultado.add(heroe);
                     } else if (cboUniverso.getSelectedItem().equals("DC")) {
                         heroe.setNivelPoder((int) (heroe.getNivelPoder() * 0.20) + heroe.getNivelPoder());
